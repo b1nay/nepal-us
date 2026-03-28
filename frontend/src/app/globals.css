@@ -1,39 +1,7 @@
-/* @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-lexie: var(--font-lexie), ui-sans-serif, system-ui;
-  --font-open: var(--font-open), sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
-
-
 @import "tailwindcss";
 
+/* ─── Design Tokens ────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-
   /* Primary Palette */
   --sage: #E1F5EE;
   --teal-soft: #9FE1CB;
@@ -59,15 +27,24 @@ body {
   --warning-text: #854F0B;
   --crisis-bg: #FBEAF0;
   --crisis-text: #993556;
+
+  /* Background default */
+  --background: #F1EFE8;
+  --foreground: #2C2C2A;
+
+  /* bdpq letter colours */
+  --b-color: #2563EB;
+  --d-color: #DC2626;
+  --p-color: #7C3AED;
+  --q-color: #059669;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  
+
   /* Fonts */
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui;
   --font-lexie: var(--font-lexie), ui-sans-serif, system-ui;
   --font-open: var(--font-open), sans-serif;
 
@@ -76,7 +53,7 @@ body {
   --color-teal-soft: var(--teal-soft);
   --color-lavender: var(--lavender);
   --color-purple-soft: var(--purple-soft);
-  
+
   --color-amber-warm: var(--amber-warm);
   --color-amber-golden: var(--amber-golden);
   --color-teal-active: var(--teal-active);
@@ -95,20 +72,180 @@ body {
   --color-crisis-text: var(--crisis-text);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    /* Optional: Override palette variables here for dark mode */
-  }
+/* ─── Base Reset & Typography ───────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
   background: var(--background);
-  color: var(--body); /* Using your new body text color */
-  font-family: var(--font-lexie); /* Defaulting to your accessible font */
+  color: var(--body);
+  font-family: var(--font-inter), var(--font-lexie), ui-sans-serif, system-ui;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
+  color: var(--heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--off-white);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--teal-soft);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--teal-active);
+}
+
+/* ─── Animations ────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes floatY {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(29, 158, 117, 0.4); }
+  50%       { box-shadow: 0 0 0 14px rgba(29, 158, 117, 0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ─── Utility Animation Classes ────────────────────────── */
+.animate-fade-in   { animation: fadeIn 0.4s ease both; }
+.animate-slide-up  { animation: slideUp 0.5s ease both; }
+.animate-slide-down{ animation: slideDown 0.4s ease both; }
+.animate-scale-in  { animation: scaleIn 0.4s ease both; }
+.animate-float     { animation: floatY 4s ease-in-out infinite; }
+.animate-pulse-glow{ animation: pulseGlow 2s infinite; }
+.animate-spin-slow { animation: spin 3s linear infinite; }
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+
+/* ─── Glass Morphism ────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-sage {
+  background: rgba(225, 245, 238, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(159, 225, 203, 0.4);
+}
+
+/* ─── bdpq Letter Highlights ───────────────────────────── */
+.letter-b { color: var(--b-color); font-weight: 700; }
+.letter-d { color: var(--d-color); font-weight: 700; }
+.letter-p { color: var(--p-color); font-weight: 700; }
+.letter-q { color: var(--q-color); font-weight: 700; }
+
+/* ─── Karaoke Word Highlight ───────────────────────────── */
+.word-span {
+  display: inline;
+  border-radius: 4px;
+  transition: background 0.1s ease, color 0.1s ease;
+  padding: 0 1px;
+}
+.word-span.active {
+  background: var(--amber-golden);
+  color: var(--heading);
+  border-radius: 4px;
+}
+
+/* ─── Reader Themes ────────────────────────────────────── */
+.theme-sage     { background: #E1F5EE !important; }
+.theme-lavender { background: #EEEDFE !important; }
+.theme-amber    { background: #FAEEDA !important; }
+.theme-pale-blue{ background: #E8F4FD !important; }
+.theme-dark     { background: #1a1a1a !important; color: #e5e7eb !important; }
+.theme-dark h1, .theme-dark h2, .theme-dark h3 { color: #f9fafb !important; }
+
+/* ─── Gradient Text ─────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--teal-active) 0%, var(--purple-deep) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Shimmer Loading ───────────────────────────────────── */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--off-white) 25%,
+    var(--gray-warm) 50%,
+    var(--off-white) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ─── Focus Ring ────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--teal-active);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Selection ─────────────────────────────────────────── */
+::selection {
+  background: var(--teal-soft);
   color: var(--heading);
 }
