@@ -12,7 +12,7 @@ export default function Navbar(){
 <span>O</span>
         </p>
 <div>
-    <Link href="/studio" className="bg-teal-active text-white py-3 px-5 inline-flex items-center gap-2 rounded-xl">Studio <MdLocalLibrary className="text-2xl"/></Link>
+    <Link href="/reading-studio" className="bg-teal-active text-white py-3 px-5 inline-flex items-center gap-2 rounded-xl"> Reading Studio <MdLocalLibrary className="text-2xl"/></Link>
 </div>
 
     </div>)
