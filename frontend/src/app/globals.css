@@ -1,4 +1,4 @@
-@import "tailwindcss";
+/* @import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -10,6 +10,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-lexie: var(--font-lexie), ui-sans-serif, system-ui;
+  --font-open: var(--font-open), sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +25,90 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Primary Palette */
+  --sage: #E1F5EE;
+  --teal-soft: #9FE1CB;
+  --lavender: #EEEDFE;
+  --purple-soft: #CECBF6;
+
+  /* Accent & Action */
+  --amber-warm: #FAEEDA;
+  --amber-golden: #FAC775;
+  --teal-active: #1D9E75;
+  --purple-deep: #534AB7;
+
+  /* Neutrals & Text */
+  --off-white: #F1EFE8;
+  --gray-warm: #D3D1C7;
+  --body: #5F5E5A;
+  --heading: #2C2C2A;
+
+  /* Semantic States */
+  --success-bg: #EAF3DE;
+  --success-text: #3B6D11;
+  --warning-bg: #FAEEDA;
+  --warning-text: #854F0B;
+  --crisis-bg: #FBEAF0;
+  --crisis-text: #993556;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  
+  /* Fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-lexie: var(--font-lexie), ui-sans-serif, system-ui;
+  --font-open: var(--font-open), sans-serif;
+
+  /* Custom Palette Mapping */
+  --color-sage: var(--sage);
+  --color-teal-soft: var(--teal-soft);
+  --color-lavender: var(--lavender);
+  --color-purple-soft: var(--purple-soft);
+  
+  --color-amber-warm: var(--amber-warm);
+  --color-amber-golden: var(--amber-golden);
+  --color-teal-active: var(--teal-active);
+  --color-purple-deep: var(--purple-deep);
+
+  --color-off-white: var(--off-white);
+  --color-gray-warm: var(--gray-warm);
+  --color-body: var(--body);
+  --color-heading: var(--heading);
+
+  --color-success-bg: var(--success-bg);
+  --color-success-text: var(--success-text);
+  --color-warning-bg: var(--warning-bg);
+  --color-warning-text: var(--warning-text);
+  --color-crisis-bg: var(--crisis-bg);
+  --color-crisis-text: var(--crisis-text);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    /* Optional: Override palette variables here for dark mode */
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--body); /* Using your new body text color */
+  font-family: var(--font-lexie); /* Defaulting to your accessible font */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading);
 }
