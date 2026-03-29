@@ -645,20 +645,6 @@ Content-Type: application/json
 
 ---
 
-## 👥 Team & Roles
-
-| Role | Responsibility | Notes |
-|------|-----------------|-------|
-| **Product Lead** | Project vision, user research, accessibility compliance | Ensures non-diagnostic framing |
-| **Backend Engineer** | FastAPI API, PDF processing, screener logic, database integration | Python/FastAPI stack |
-| **Frontend Engineer** | React/Next.js UI, reading interface, dashboard, state management | TypeScript, Tailwind CSS |
-| **Extension Developer** | Chrome extension, social media integration, DOM manipulation | JavaScript, Manifest V2 |
-| **ML/AI Engineer** | Screener validation, reading profile optimization, progress prediction | Optional: advanced analytics |
-| **Designer/UX** | Accessibility design, pastel themes, user testing with neurodivergent users | Critical for compliance |
-| **QA/Testing** | Cross-browser testing, accessibility audits (WCAG 2.1), performance testing | NVDA/JAWS testing |
-| **DevOps/Infra** | Deployment, monitoring, scaling, data privacy/compliance | HIPAA/GDPR considerations |
-
----
 
 ## 🔒 Privacy & Legal
 
