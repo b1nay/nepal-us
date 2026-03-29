@@ -21,6 +21,8 @@ load_dotenv(dotenv_path=Path(__file__).resolve().parent / ".env")
 MAX_FILE_MB    = 15
 MAX_PAGES      = 80
 MIN_TEXT_CHARS = 120
+from PIL import Image
+import uvicorn
 
 # ---------------------------------------------------------------------------
 # Resolve SSML_MARK timepoint enum safely across ALL library versions.
@@ -482,3 +484,75 @@ async def tts_endpoint(payload: TTSRequest):
         "Cache-Control":       "no-store",
     }
     return StreamingResponse(io.BytesIO(output_bytes), media_type=media_type, headers=headers)
+def perform_ocr_with_pymupdf(doc):
+    """
+    Converts PDF pages to images using PyMuPDF and runs OCR via Tesseract.
+    This avoids the need for the Poppler library.
+    """
+    full_text = []
+    
+    for page_num, page in enumerate(doc):
+        # 1. Render page to an image (Pixmap)
+        # We use a Matrix to scale the image up (2x) for better OCR accuracy
+        zoom = 2.0 
+        mat = fitz.Matrix(zoom, zoom)
+        pix = page.get_pixmap(matrix=mat)
+        
+        # 2. Convert Pixmap to a PIL Image
+        img_data = pix.tobytes("png")
+        img = Image.open(io.BytesIO(img_data))
+        
+        # 3. Run Tesseract OCR
+        text = pytesseract.image_to_string(img, lang='eng')
+        
+        full_text.append({
+            "page": page_num + 1, 
+            "content": text.strip(),
+            "method": "ocr"
+        })
+        
+    return full_text
+
+@app.post("/process-pdf")
+async def process_pdf(file: UploadFile = File(...)):
+    if not file.filename.endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="File must be a PDF")
+    try:
+        pdf_bytes = await file.read()
+        # Open the PDF directly from memory
+        doc = fitz.open(stream=pdf_bytes, filetype="pdf")
+        pages_data = []
+        is_scanned = False
+
+        # Quick check: is this a 'searchable' PDF or a scan?
+        for page in doc:
+            text = page.get_text().strip()
+            # If the first few pages have almost no text, assume it's a scan
+            if len(text) < 50:
+                is_scanned = True
+                break
+            
+            pages_data.append({
+                "page": page.number + 1,
+                "content": text,
+                "method": "direct_extraction"
+            })
+
+        # If it looks like a scan, re-process everything with OCR
+        if is_scanned:
+            pages_data = perform_ocr_with_pymupdf(doc)
+
+        doc.close()
+
+        return {
+            "filename": file.filename,
+            "page_count": len(pages_data),
+            "is_ocr_processed": is_scanned,
+            "data": pages_data
+        }
+
+    except Exception as e:
+        return {"error": str(e)}
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
