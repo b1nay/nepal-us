@@ -1,0 +1,170 @@
+/* ──────────────────────────────────────────────────────────────────────────── */
+/*  OSO – Injected Stylesheet                                                   */
+/*  Applied to supported social media pages when OSO is active                 */
+/* ──────────────────────────────────────────────────────────────────────────── */
+
+/* ─── Pastel Color Palette Variables ─────────────────────────────────────── */
+:root {
+  --oso-peach:    #FFE8D6;
+  --oso-mint:     #D8F5E9;
+  --oso-lavender: #EAE4FF;
+  --oso-sky:      #D6EFFF;
+  --oso-butter:   #FFF8D6;
+  --oso-rose:     #FFE4EC;
+  --oso-sage:     #DDF0DC;
+  --oso-text:     #2A1F3D;
+  --oso-subtext:  #6B5F7A;
+  --oso-card-r:   18px;
+}
+
+/* ─── OpenDyslexic / Accessible Font ─────────────────────────────────────── */
+.oso-font,
+.oso-font * {
+  font-family: 'OpenDyslexic', sans-serif !important;
+}
+
+/* ─── Pastel Background & Cards ──────────────────────────────────────────── */
+
+/* Global background */
+.oso-pastel body,
+.oso-pastel [role="main"],
+.oso-pastel [role="feed"],
+.oso-pastel #content,
+.oso-pastel main {
+  background: var(--oso-lavender) !important;
+}
+
+/* Feed / timeline wrapper */
+.oso-pastel [role="feed"] {
+  background: transparent !important;
+}
+
+/* ─── Facebook-specific: post cards ─────────────────────────────────────── */
+
+/* Individual post blocks */
+.oso-pastel [data-pagelet*="FeedUnit"],
+.oso-pastel [class*="userContentWrapper"],
+.oso-pastel .__fb-light-mode[role="article"],
+.oso-pastel div[aria-posinset] {
+  background: var(--oso-mint) !important;
+  border-radius: var(--oso-card-r) !important;
+  border: 1.5px solid rgba(255,255,255,0.8) !important;
+  box-shadow: 0 4px 20px rgba(42,33,51,0.07) !important;
+}
+
+/* Cycle pastel colors through posts using nth-child */
+.oso-pastel [role="feed"] > div:nth-child(4n+1) > div { background: var(--oso-mint)     !important; }
+.oso-pastel [role="feed"] > div:nth-child(4n+2) > div { background: var(--oso-sky)      !important; }
+.oso-pastel [role="feed"] > div:nth-child(4n+3) > div { background: var(--oso-butter)   !important; }
+.oso-pastel [role="feed"] > div:nth-child(4n+4) > div { background: var(--oso-peach)    !important; }
+
+/* Comments, reply areas */
+.oso-pastel [aria-label*="comment" i],
+.oso-pastel [aria-label*="reply" i] {
+  background: var(--oso-rose) !important;
+  border-radius: 12px !important;
+}
+
+/* Text color */
+.oso-pastel,
+.oso-pastel * {
+  color: var(--oso-text) !important;
+}
+
+/* ─── Bento Grid Layout ──────────────────────────────────────────────────── */
+.oso-layout [role="feed"] {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 16px !important;
+  padding: 16px !important;
+  max-width: 680px !important;
+  margin: 0 auto !important;
+}
+
+.oso-layout [role="feed"] > div {
+  border-radius: var(--oso-card-r) !important;
+  overflow: hidden !important;
+  transition: transform 0.2s, box-shadow 0.2s !important;
+}
+
+.oso-layout [role="feed"] > div:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 32px rgba(42,33,51,0.12) !important;
+}
+
+/* ─── Hide Distracting Elements ──────────────────────────────────────────── */
+
+/* Facebook: right rail, ads, sponsored content, Stories bar */
+.oso-hide-distract [data-pagelet="RightRail"],
+.oso-hide-distract [data-pagelet="StoriesRing"],
+.oso-hide-distract [aria-label="Stories"],
+.oso-hide-distract [data-testid="marketplace_feed"],
+.oso-hide-distract [data-ad-preview],
+.oso-hide-distract [data-testid="story_ring_container"],
+.oso-hide-distract [aria-label*="Sponsored"],
+.oso-hide-distract .__fb-light-mode ~ div[style*="width: 360px"],
+.oso-hide-distract [data-pagelet="NavigationBar"] ~ div[style*="right"] {
+  display: none !important;
+}
+
+/* Remove sticky headers that eat screen space */
+.oso-hide-distract [data-pagelet="LeftRail"] {
+  display: none !important;
+}
+
+/* ─── Focus Mode ─────────────────────────────────────────────────────────── */
+.oso-focus [role="feed"] > div {
+  opacity: 0.35;
+  transition: opacity 0.2s;
+}
+
+.oso-focus [role="feed"] > div:hover {
+  opacity: 1;
+}
+
+/* ─── Reduce Animations ──────────────────────────────────────────────────── */
+.oso-reduce-anim *,
+.oso-reduce-anim *::before,
+.oso-reduce-anim *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+.oso-reduce-anim video {
+  display: none !important;
+}
+
+/* ─── Letter Highlight Markers ───────────────────────────────────────────── */
+.oso-letter-wrap {
+  display: inline !important;
+  border-radius: 3px !important;
+  padding: 0 1px !important;
+  font-weight: bold !important;
+  /* background set dynamically via JS */
+}
+
+/* ─── Typography Improvements ────────────────────────────────────────────── */
+.oso-active p,
+.oso-active span,
+.oso-active div {
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* Improve input fields */
+.oso-active input,
+.oso-active textarea {
+  background: white !important;
+  border-radius: 10px !important;
+  border: 1.5px solid rgba(42,33,51,0.2) !important;
+}
+
+/* ─── Scrollbar Styling ──────────────────────────────────────────────────── */
+.oso-active::-webkit-scrollbar { width: 8px; }
+.oso-active::-webkit-scrollbar-track { background: var(--oso-lavender); }
+.oso-active::-webkit-scrollbar-thumb {
+  background: rgba(42,33,51,0.2);
+  border-radius: 4px;
+}
+.oso-active::-webkit-scrollbar-thumb:hover { background: rgba(42,33,51,0.35); }

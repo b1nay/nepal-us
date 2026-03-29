@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "neuro-read",
+  "private_key_id": "94636a7fba905f8c8d0ad94f8480372b82a87aef",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC/xiHdQOqcYafa\nm2G2ULQJDqZtuaEbsBLYqdHztWFvU5x5ui/P8GJZyAxRad5au84yQIfs13+2DIql\nv19/bHSV+Ctfa7U8gH/xU1WL4NJTC0uB1rf6pzuMDV0k08IbWOzZBhRBWyLwPed8\nErBL7r4s7qfPC/8pooeLLt3GMSuUZhinkYuHjOPEv7fI3CMCo/xc2ovWfXFtfoDS\nFBmB6hUCiZ/jN2cFxjciFwfevv+6LMsFxR86Q/yMz31zUimrslh/SbWkMZYUZwn2\nPRjUOyu/k661iUeuC9JHCSZkDF+NVIkV4L2rjYhRQPL+3WFlJ+y8Iy9lys6sBM01\n8RhVkHi5AgMBAAECggEAH8XJ0ohw1lvvnW5k7/nK+j0tIbzBjn7LgI4SNNh2PiWS\nJTDNvxvKj6lvMQXjSxEWhojefETv6c+GIRPl1Iy5fCdTuEl2C4IWsHroD3a+Ifgb\nGHXkoWiXmwqTxgg3fqRrCUHSlUluLnNzKMFH6Cyz4Wng75LDQbil0E+Betamq709\nJiJOehnP8Fu2WotWaoEUIOnVfracuuAjNYRnYwT5sLIAOHfgXyRuCYfWhdp8EZwe\nqKwMPleEo6MDYe1CJyWhKmMajbRvhD8XbAr/lb7B1D8tyUPf4CazFBuBHJzyvYf7\ndEcjPnz+60iWigj4Zq5JS4i5cbNM0kUs9pQ/uCYVoQKBgQDhbN6T4Iu6NRe/91fA\nRXPCRSpb1lNpu6oDUK1YoR/kv1b57zxO8inRsaje9yq8kHkWndcMrqfYePfAVnFp\ngE6eQau3ehOF8+zEVenm7+r3oP9+xKNEvhQrEEEgoRCVDE2mZhKDTiMfKEIEzK+z\n4nTK5u6LuAlEjXRcuO5ebOCXNQKBgQDZyNWokLGcwTkvpJYj4uBhRyBPfJn8uEUL\nltGJTAKFYi93ove57s/QSp2YeojyetmQLENmYFP4z1X+Wh24GLi9NgTcbiM4ncB+\nCwZjt14HoR//pQkROXeZwYrVtXLq702wFYziMgc2Xla8VuA9hxGhM1MsFfL98K7r\nSJgCYCIX9QKBgQCfSnUFfbh+viGoLrm9TdZ8wq8p8gtDPa7nZMz5QfHtjB+DwT+W\ncZyHZsjztShn0pceGi7p8Uj9uI0pRmwhpt7nCXSz0/mTwEfgfO0pmQMqNIQWKhFM\n9BwASh4bVnUHPYhpOtt+GWrMC4CLL7BAppbtAb4y0LsLzAEbvDoEU19ouQKBgE7i\nGdG2pz66FjaVjPRupwtVMfTYkwYg0JGEDV2HtJoPmFXjJ4unXop5nF+wco4xxUAd\naERau8+xedppVb5q5e9S86vMEOHe8ew1nhjcQCjPScHVS1V71UBSBDGoSXmjOCaB\nh8geitI8lXoelZZzqAUVjBi50ov8c78xSi4CGBdJAoGAZb1FyNGIztY3vnuwrJ5O\nkzNoZqanCxCay6oRfbGeSF4LHCyeOEo/Fpuf0Swc1DsIJC8OTrhJ9+4DMX8nlG3q\n+7ul6ZYbC/Qh8VdD8bofdXDgGKx7Ag6pGEIurwilzWYKTN0MpEQRqaPwjgzFQrdw\nXCEV0mKg3n+tUzdekpdUB/0=\n-----END PRIVATE KEY-----\n",
+  "client_email": "tts-runner@neuro-read.iam.gserviceaccount.com",
+  "client_id": "102522748994214980720",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tts-runner%40neuro-read.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

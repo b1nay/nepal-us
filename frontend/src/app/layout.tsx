@@ -39,6 +39,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import { GameProvider } from '@/lib/GameProvider';
+import { Metadata } from 'next';
 const lexie = localFont({
   src: [
     { path: '../../public/fonts/LexieReadable-Regular.ttf', weight: '400', style: 'normal' },
@@ -46,6 +47,10 @@ const lexie = localFont({
   ],
   variable: '--font-lexie', // This links to Tailwind
 });
+export const metadata: Metadata = {
+  title: "OSO",
+  description: "Learning that works for your brain",
+};
 
 const openDyslexic = localFont({
   src: [

@@ -1,0 +1,54 @@
+{
+  "manifest_version": 2,
+  "name": "OSO – Dyslexia & ADHD Friendly Web",
+  "version": "1.0.0",
+  "description": "Transforms social media into a calm, accessible experience for dyslexic and ADHD minds.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "tabs",
+    "https://www.facebook.com/*",
+    "https://facebook.com/*",
+    "https://twitter.com/*",
+    "https://x.com/*",
+    "https://www.instagram.com/*",
+    "https://www.reddit.com/*",
+    "https://www.youtube.com/*"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.svg",
+      "32": "icons/icon32.svg",
+      "48": "icons/icon48.svg",
+      "128": "icons/icon128.svg"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.svg",
+    "32": "icons/icon32.svg",
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.facebook.com/*",
+        "https://facebook.com/*",
+        "https://twitter.com/*",
+        "https://x.com/*",
+        "https://www.instagram.com/*",
+        "https://www.reddit.com/*",
+        "https://www.youtube.com/*"
+      ],
+      "js": ["content.js", "sidebar.js"],
+      "css": ["oso-styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": ["fonts/*", "icons/*"]
+}
