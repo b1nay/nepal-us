@@ -730,5 +730,12 @@ For issues or questions:
 
 ---
 
+##Team
+Binayak Karki
+Dipesh Deula
+Dipin Adhikari
+Saphal Kafle
+Nishant Shrestha
+
 **Last Updated:** March 2026  
 **Status:** Active Development
