@@ -1,2 +1,21 @@
-myvenv
-__pycache__
+# Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+myvenv/
+
+# Tooling caches
+.mypy_cache/
+.pytest_cache/
+
+# Local environment / secrets
+# .env
+
+# OS junk
+.DS_Store
+Thumbs.db
