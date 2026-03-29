@@ -37,7 +37,7 @@ const OSOApp = () => {
           Open Source Accessibility
         </span>
         <h1 className="mt-6 text-5xl md:text-6xl font-extrabold text-slate-900 leading-tight">
-          Learning that works for <span className="text-emerald-500">your brain</span>
+          Learning that works for <br /> <span className="text-emerald-500">your brain</span>
         </h1>
         <p className="mt-6 text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
           OSO adapts content to your unique sensory needs. Reduce glare, increase focus, and optimize typography for Dyslexia and ADHD.
