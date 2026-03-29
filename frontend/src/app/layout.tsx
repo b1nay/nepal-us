@@ -38,7 +38,7 @@
 import localFont from 'next/font/local';
 import './globals.css';
 import Navbar from '@/components/Navbar';
-
+import { GameProvider } from '@/lib/GameProvider';
 const lexie = localFont({
   src: [
     { path: '../../public/fonts/LexieReadable-Regular.ttf', weight: '400', style: 'normal' },
@@ -60,8 +60,10 @@ const openDyslexic = localFont({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${lexie.variable} ${openDyslexic.variable} font-lexie`}>
+      <GameProvider>
       <Navbar/>
       <body>{children}</body>
+      </GameProvider>
     </html>
   );
 }
